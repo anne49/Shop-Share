@@ -1,0 +1,29 @@
+
+<div class="row mt-4">
+  <div class="col-sm-3 left-sidebar">
+    <div class="sticky-top">
+      <h4>Search Product</h4>
+      <div class="search-box">
+        <input #query
+        (keyup) = "filter(query.value)"
+        class="form-control" type="text" placeholder="Search...">
+      </div>
+      <h4>Category</h4>
+      <product-filter [category]="category"></product-filter>
+    </div>    
+  </div>
+  <div class="col">
+    <div class="row" *ngIf="cart$ | async as cart">
+      <ng-container *ngFor="let p of filteredProducts; let i=index">
+        <div class="col-12 col-md-6">
+          <product-card [product] = "p" [shopping-cart] = "cart" ></product-card>
+        </div>
+        <div *ngIf="(i+1)%2==0" class="w-100"></div>
+      </ng-container>  
+    </div>
+  </div>
+</div>
+
+
+
+

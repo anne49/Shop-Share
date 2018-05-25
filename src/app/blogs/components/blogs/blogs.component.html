@@ -1,0 +1,57 @@
+<header class="jumbotron">
+  <div class="container">
+    <h1>Welcome to SharingPlog!</h1>
+    <p>Photo-blogging about food and life and sharing with the rest of world.</p>
+    <p>
+      <a class="btn btn-primary" href="/blogs/new"> Start sharing </a><!-- Post a recipe -->
+      <!-- <a class="btn btn-primary" href="#"> Share a dish </a> -->
+    </p>
+  </div>
+</header>
+
+<div class="row text-center">
+  <!-- loop plogs -->
+  <ng-container *ngFor="let blog of filteredBlogs; let i=index"><!-- blogs$|async -->
+    <div class="col-12 col-md-6">
+      <div class="card"><!-- style="width: 18rem;"  -->  
+        <hover-container>
+          <a [routerLink]="['/blogs/', blog.$key]">
+            <img class="card-img-top" [src]="blog.blogForm.imageUrl" alt="Card image cap">
+          </a>
+          <ng-container overlay>
+            <div class="card-body">
+              <!-- <h5 class="card-title">{{blog.blogForm.title}}</h5>
+              <p class="card-text"><strong>Ingredients: </strong></p>
+              <p class="card-text">{{blog.blogForm.ingredients}}</p>
+              <hr> -->
+              <p class="card-text">
+                <em> 
+                  <span class="float-left">Submitted by {{blog.authorName}} </span>
+                  <span class="float-right">{{blog.datePost | date : 'short'}}</span>
+                </em>
+              </p>
+            </div>
+          </ng-container>
+        </hover-container>      
+        
+        
+      </div>
+    </div>
+    <div *ngIf="(i+1)%2==0" class="w-100"></div>
+  </ng-container>
+
+   <!-- <div class="col-md-3 col-sm-6">
+    <div class="card" style="width: 18rem;">
+      <a routerLink="#"> 
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1515683359900-6922e4964be1?ixlib=rb-0.3.5&s=6c8f1cf02cc0ce04b44fe8eb000b0fce&auto=format&fit=crop&w=1050&q=80" alt="Card image cap">
+      </a>
+      <div class="card-body">
+        <p class="card-text">By author</p>
+      </div>
+    </div>
+  </div> 
+
+  <button (click)="populateBlogs()">Display</button> -->
+
+</div>
+

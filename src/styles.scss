@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+
+$primary-color: rgb(11, 158, 67);
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body { 
+    padding-top: 80px; 
+    margin-bottom: 100px;/* Margin bottom by footer height */
+    font-family: Roboto;
+}
+
+.bg-custom {
+    background: url(https://images.unsplash.com/photo-1519636243899-5544aa477f70?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=21531763dc7f062effed3a2569519893&auto=format&fit=crop&w=1050&q=80);    
+    background-size : cover;
+}
+.navbar-light .navbar-brand {
+    color: $primary-color;
+}
+
+.list-group-item.active {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.left-sidebar h4{
+    color: $primary-color;
+}

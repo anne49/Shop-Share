@@ -1,0 +1,28 @@
+
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <img class="center" [src]="images[0]" alt="first slide">
+      <div class="carousel-caption">
+        <h3>Shop and Share</h3>
+        <p>A simple life.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <a routerLink="/products">
+        <img class="center" [src]="images[1]" alt="second slide">
+        <div class="carousel-caption">
+          <h3>Shop</h3>
+          <p>Shop online for fresh food.</p>
+        </div>
+      </a>      
+    </ng-template>
+    <ng-template ngbSlide>
+      <a routerLink="/blogs">
+        <img class="center" [src]="images[2]" alt="third slide">
+        <div class="carousel-caption">
+          <h3>Share</h3>
+          <p>Share your story with the rest of the world.</p>
+        </div>
+      </a>
+    </ng-template>
+  </ngb-carousel>

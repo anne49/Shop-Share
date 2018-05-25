@@ -1,0 +1,7 @@
+.divider-box {
+    display: block;
+    content: '.';
+    visibility: hidden;
+    margin-top: 30px;
+    
+}

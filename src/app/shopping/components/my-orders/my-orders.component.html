@@ -1,0 +1,24 @@
+
+<h2>
+  My Orders
+</h2>
+<div class="divider-box"></div>
+<table class="table">
+    <thead>
+        <tr>            
+            <th>Date</th>
+            <th>Order number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of orders$ | async">
+            <td>{{o.datePlaced | date}}</td>
+            <td>
+                <a [routerLink]="['/my/orders/', o.$key]">{{ o.$key }}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!--
+<button class="btn btn-primary" (click)="onClick()">click</button>
+-->

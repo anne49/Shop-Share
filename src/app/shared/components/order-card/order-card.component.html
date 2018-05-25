@@ -1,0 +1,38 @@
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <!--below is copied from shopping-cart-summary.comp.html-->
+    <div class="card">
+      <div class="card-body">
+        <h3 *ngIf = "!showSuccess" class="card-title">Order Summary</h3>
+        <h3 *ngIf = "showSuccess" class="card-title">Thanks for your order!</h3>
+        <p class="card-text">You have {{ order.totalItemsCount }} items in your order.</p>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let item of order.items" class="list-group-item">
+            {{ item.quantity }} x {{ item.product.title }}
+            <div class="float-right">
+              {{ item.totalPrice | currency: 'CAD' :'symbol' }}
+            </div>
+          </li>
+          <li class="list-group-item font-weight-bold">
+            Total
+            <div class="float-right">
+                {{ order.totalOrderPrice | currency: 'CAD' :'symbol' }}
+            </div>
+          </li>
+        </ul>
+        <ul class="list-group list-group-flush font-weight-bold" >
+          <li *ngIf="order.shipping" class="list-group-item" style="border:none">
+            Name: {{ order.shipping.name }}
+          </li>
+          <li *ngIf="order.shipping" class="list-group-item" style="border:none">
+            Address: {{ order.shipping.addressLine1 +' '+ order.shipping.addressLine2 +' '+ order.shipping.city }}
+          </li>
+          <li *ngIf="order" class="list-group-item" style="border:none">
+            Date: {{ order.datePlaced | date }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+<div *ngIf="blog.blogForm.title" class="card">
+  <ng-container *ngIf="blog">
+      <img class="card-img-top" [src]="blog.blogForm.imageUrl" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{blog.blogForm.title}}</h5>
+        <div class="card-text">
+          <p><strong>Ingredients: </strong></p>
+          <p>{{blog.blogForm.ingredients}}</p>
+        </div>
+        <hr>
+        <div class="card-text">
+          <p><strong>Notes: </strong></p>
+          <p>{{blog.blogForm.notes}}</p>
+        </div>
+        <hr>
+        <p>
+          <em> Submitted by {{blog.authorName}} 
+            <span class="float-right">{{blog.datePost | date : 'short'}}</span>
+          </em>
+        </p>
+        
+        <a *ngIf="owner" [routerLink]="['/blogs/', blog.$key, 'edit']" class="btn btn-warning">Edit</a>
+        <button *ngIf="owner" class="btn btn-danger" (click)="delete(blog.$key)">Delete</button>  
+        <a *ngIf="!dummy" href="/blogs" class="btn btn-link float-right">Go back</a>      
+        <!-- <button (click)="check()" class="btn btn-primary">Check</button> -->
+        <a *ngIf="dummy" href="#" class="btn btn-warning disabled" >Edit</a>
+        <button *ngIf="dummy" class="btn btn-danger" disabled>Delete</button>  
+        <a *ngIf="dummy" href="/blogs" class="btn btn-link float-right disabled" >Go back</a>
+        
+      </div>
+  </ng-container>  
+</div>

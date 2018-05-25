@@ -1,0 +1,31 @@
+
+  <div class="list-group">
+    <!--
+    <div class="list-group-item">
+      <div class="input-group">
+        <input type="text" placeholder="Search..." class="form-control">
+        <div class="input-group-append">
+          <a class="fa fa-search input-group-text btn"></a>
+        </div>
+      </div>
+    </div>-->   
+
+    <a 
+      class="list-group-item list-group-item-action"
+      [class.active]="!category"
+      routerLink = "/products"
+      >All
+    </a>
+    <a 
+      *ngFor="let c of categories$ | async" 
+      routerLink = "/products"
+      [queryParams] = "{category: c.$key}"
+      class="list-group-item list-group-item-action"
+      [class.active]="category === c.$key"
+      >
+      {{ c.name }}
+    </a>
+
+  </div>
+
+

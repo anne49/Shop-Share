@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #f="ngForm" > <!--  (ngSubmit)="save(f.value)" -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input #title="ngModel" [(ngModel)]="blog.blogForm.title" name="title" id="title" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+          <div *ngIf="title.errors.required">Title is required!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">ImageUrl</label>
+        <input #imageUrl="ngModel" [(ngModel)]="blog.blogForm.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
+        <!-- -->
+        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+          <div *ngIf="imageUrl.errors.required">Image url is required!</div>
+          <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
+        </div> 
+      </div>
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <textarea #ingredients="ngModel" [(ngModel)]="blog.blogForm.ingredients" name="ingredients" class="form-control" id="ingredients" rows="3" required></textarea>
+        <div class="alert alert-danger" *ngIf="ingredients.touched && ingredients.invalid">
+          <div *ngIf="ingredients.errors.required">Ingredients is required!</div>
+        </div> 
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea #notes="ngModel" [(ngModel)]="blog.blogForm.notes" name="notes" class="form-control" id="notes" rows="5" required></textarea>
+        <div class="alert alert-danger" *ngIf="notes.touched && notes.invalid">
+          <div *ngIf="notes.errors.required">Notes is required!</div>
+        </div> 
+      </div>
+      
+      <button 
+        class="btn btn-primary" 
+        [disabled] = "!f.valid"
+        (click)="save()">
+        Save
+      </button>
+      <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <blog-card [blog]="blog" [dummy]="true"></blog-card>
+  </div> 
+</div>
+
