@@ -20,7 +20,7 @@ import { BlogAuthGuard } from './services/blog-auth-guard.service';
     RouterModule.forChild([      
       { path: 'blogs/:id/edit',
         component: BlogFormComponent,
-        canActivate: [AuthGuard, BlogAuthGuard]//        
+        canActivate: [AuthGuard, BlogAuthGuard  ]//      
       },
       { path:'blogs/new',  
         component: BlogFormComponent, 

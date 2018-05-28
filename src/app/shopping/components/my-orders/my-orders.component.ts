@@ -9,8 +9,7 @@ import { AuthService } from 'shared/services/auth.service';
 })
 export class MyOrdersComponent implements OnInit {
   userId;
-  orders$;
- 
+  orders$; 
 
   constructor(private auth: AuthService, private orderService: OrderService) { 
     this.auth.user$.map(user=>this.userId = user.uid);

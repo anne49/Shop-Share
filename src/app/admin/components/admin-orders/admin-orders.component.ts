@@ -7,8 +7,7 @@ import { OrderService } from 'shared/services/order.service';
   styleUrls: ['./admin-orders.component.css']
 })
 export class AdminOrdersComponent implements OnInit {
-  orders$;
- 
+  orders$; 
 
   constructor(private orderService: OrderService) { 
     this.orders$ = this.orderService.getAll();

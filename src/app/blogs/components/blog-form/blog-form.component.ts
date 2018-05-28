@@ -48,7 +48,7 @@ export class BlogFormComponent implements OnInit {
   
   async save(){
     // this.blog.datePost = new Date().getTime();
-    let blog = new Blog(this.author.displayName, this.author.uid, this.blog.blogForm);
+    let blog = new Blog(this.author.displayName, this.author.uid, this.blog.blogForm);//...
     // console.log(blog);
     if (this.blogId) {
       await this.blogService.update(this.blogId, blog);

@@ -26,12 +26,14 @@ export class BlogPageComponent implements OnInit {
 
   ngOnInit() {
     this.blogId = this.route.snapshot.paramMap.get('id');
-    if (this.blogId) this.blogService.get(this.blogId).take(1).subscribe(blog => {
-      this.blog = blog;
-      //console.log(this.blog.$key);
-    });
+    if (this.blogId) {
+      this.blogService.get(this.blogId).take(1).subscribe(blog => {
+        this.blog = blog;
+        console.log(this.blog);
+      });
     
-    this.getUser();
+      this.getUser();
+    }
   }
 
   // delete() {
